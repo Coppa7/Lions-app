@@ -1,8 +1,122 @@
 <html>
-  <head>
-    <title>My Website</title>
-  </head>
-  <body>
-    <h1>Welcome To My Website!</h1>
-  </body>
+
+<head>
+  <title>My Leo App</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="loginCSS.css">
+  <link rel="icon" type="image/x-icon" href="img/logo.svg">
+  <script>
+    function saveFormData() {
+      sessionStorage.setItem("email", document.getElementById("email").value);
+      sessionStorage.setItem("password", document.getElementById("password").value);
+    }
+    function restoreFormData() {
+      document.getElementById("email").value = sessionStorage.getItem("email") || "";
+      document.getElementById("password").value = sessionStorage.getItem("password") || "";
+    }
+    function getUrlParameter(name) {
+      name = name.replace(/[\[\]]/g, "\\$&");
+      var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(window.location.href);
+      if (!results) return null;
+      if (!results[2]) return '';
+      return decodeURIComponent(results[2].replace(/\+/g, " "));
+    }
+    function displayErrorPopup() {
+      var errorMessage = getUrlParameter("error");
+
+      if (errorMessage === "1") {
+        alert("Password errata");
+      } else if (errorMessage === "2") {
+        alert("Formato e-mail non valido");
+      } else if (errorMessage === "3") {
+        alert("La password deve essere di almeno 8 caratteri");
+      } else if (errorMessage === "4") {
+        alert("La password deve contenere almeno un carattere speciale e/o numero");
+      } else if (errorMessage === "5") {
+        alert("La password deve contenere almeno un carattere maiuscolo");
+      } else if (errorMessage === "6") {
+        alert("Utente non trovato");
+      }
+
+      restoreFormData();
+    }
+    window.onload = displayErrorPopup;
+  </script>
+</head>
+
+<body>
+  <div class="body">
+    <div class="left">
+      <div class="logo">
+        <img src="img/logo.svg" class="logo">
+      </div>
+      <h1 class="title">App Leo</h1>
+    </div>
+    <div class="right">
+      <div class="loginContainer">
+        <div class="titleLogin">
+          <h2 class="login">Login</h1>
+        </div>
+        <form action="login.php" method="post" class="input" onsubmit="saveFormData()">
+          <div class="campo">
+            <div class="label">
+              <label for="email" class="email">E-mail</label>
+            </div>
+            <div class="input-group">
+              <input type="email" class="form-control" name="insertEmail" id="email" placeholder="example@email.com"
+                aria-label="example@email.com" required>
+            </div>
+          </div>
+          <div class="campo">
+            <div class="label">
+              <label for="psw">Password</label>
+            </div>
+            <div class="input-group">
+              <div class="password-toggle">
+                <input type="password" class="form-control" name="insertPsw" id="password"
+                  placeholder="Minimo 8 caratteri" aria-label="Minimo 8 caratteri" pattern="(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                  required>
+                <span class="toggle-icon" onclick="togglePasswordVisibility()">
+                  <img src="img/eye-icon.png" alt="Toggle Password Visibility">
+                </span>
+              </div>
+            </div>
+          </div>
+          <script>
+            function togglePasswordVisibility() {
+              var passwordInput = document.getElementById("password");
+              var toggleIcon = document.querySelector(".toggle-icon img");
+
+              if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+                toggleIcon.src = "img/eye-off-icon.png";
+              } else {
+                passwordInput.type = "password";
+                toggleIcon.src = "img/eye-icon.png";
+              }
+            }
+          </script>
+          <div class="campo">
+            <div class="clearfix">
+              <button type="submit" class="loginbtn">Login</button>
+            </div>
+          </div>
+        </form>
+        <div class="registrati">
+          <div class="p">
+            <p class="redirect">Se non sei ancora registrato registrati qui: </p>
+          </div>
+          <div class="button">
+            <a href="register.html">
+              <button type="submit" class="toRegister" id="register">Registrati</button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
 </html>
