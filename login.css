@@ -1,0 +1,334 @@
+html * {
+    font-family: Titillium Web, Geneva, Tahoma, sans-serif;
+}
+
+body {
+    background-color: #f0f2f5;
+}
+
+
+div.body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    margin-top: 50px;
+    flex-direction: row;
+    width: 100%;
+    position: relative;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+    div.body {
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        position: relative;
+        justify-content: flex-start;
+    }
+}
+
+div.left {
+    margin: 0;
+    padding: 0;
+    margin-left: 20px;
+    justify-content: right;
+    align-content: center;
+    flex-grow: 1;
+    box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+    div.left {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        flex-grow: 1;
+    }
+}
+
+div.right {
+    margin: 0;
+    padding: 0;
+    display: block;
+    flex-grow: 5;
+    box-sizing: border-box;
+    max-width: 950px;
+    justify-content: left;
+}
+
+@media (max-width: 768px) {
+    div.right {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+    }
+}
+
+img.logo {
+    height: 100px;
+    width: 100px;
+}
+
+h1.title {
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+    color: rgba(28, 79, 156, 255);
+}
+
+h2.login {
+    font-size: 25px;
+    text-align: left;
+}
+
+
+div.logo {
+    text-align: center;
+}
+
+input[type=email],
+input[type=password],
+input[type=text],
+textarea {
+    border: 5px;
+    border-color: #979899;
+    padding: 0.375rem 0.5rem;
+    outline: 0;
+    height: 2.5rem;
+    width: 100%;
+    box-shadow: none;
+    transition: none;
+    border-radius: 5px;
+    color: #979899;
+}
+
+.form-control {
+    background-position: center right !important;
+    background-repeat: no-repeat !important;
+    background-size: 45px 45% !important;
+}
+
+input[type="password" i] {
+    -webkit-text-security: disc !important;
+    padding-block: 1px;
+    padding-inline: 2px;
+}
+
+input[type=text]:focus,
+input[type=password]:focus,
+input[type=email]:focus {
+    background-color: #fff;
+    border-color: navy;
+    box-shadow: 0 0 0 1px navy;
+    caret-color: navy;
+}
+
+label {
+    font-size: 17px;
+}
+
+div.loginContainer {
+    background: lightgrey;
+    border: 2px solid darkgray;
+    border-radius: 4px;
+    padding: 2%;
+    text-align: center;
+    margin-left: 10%;
+    margin-right: 5%;
+}
+
+@media (max-width: 768px) {
+    div.loginContainer {
+        background: lightgrey;
+        border: 2px solid darkgray;
+        border-radius: 4px;
+        padding: 1%;
+        text-align: center;
+        margin-left: 2%;
+        margin-right: 2%;
+    }
+}
+
+form {
+    display: block;
+    margin-top: 0em;
+}
+
+div.label {
+    text-align: left !important;
+    padding: 3px !important;
+}
+
+
+div.containerForm {
+    flex-direction: column !important;
+    display: flex !important;
+}
+
+div.campi {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+div.campo {
+    flex: 1 0 1%;
+    padding: 3px;
+}
+
+.input-group {
+    position: relative;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    width: 100%;
+}
+
+.input-group {
+    margin-right: 0;
+}
+
+.input-group .input-group-text {
+    padding: 0.375rem 0.5rem;
+    border-bottom: 1px solid #5b6f82;
+    height: 100%;
+}
+
+.input-group-text {
+    display: flex;
+    align-items: center;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 1.5;
+    color: #19191a;
+    text-align: center;
+    white-space: nowrap;
+    background-color: #fff;
+    border: 0 solid #979899;
+    border-radius: 0;
+}
+
+img.avatar {
+    width: 24px;
+    height: 24px;
+}
+
+button.loginbtn {
+    background-color: rgba(28, 79, 156, 255);
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+    border-radius: 5px;
+}
+
+button.loginbtn:hover {
+    opacity: 1;
+    border-color: navy;
+    box-shadow: 0 0 0 1px navy;
+    caret-color: navy;
+}
+
+button.toRegister {
+    background-color: rgb(75, 75, 240);
+    color: white;
+    padding: 7px 10px;
+    margin: 4px 0;
+    border: none;
+    cursor: pointer;
+    width: 25%;
+    opacity: 0.9;
+    border-radius: 5px;
+}
+
+button.toRegister:hover {
+    opacity: 1;
+    border-color: blue;
+    box-shadow: 0 0 0 1px blue;
+    caret-color: blue;
+}
+
+#name,
+#lastName,
+#email,
+#password,
+#passwordTwo {
+    color: #000;
+}
+
+#message {
+    display: none;
+    background: #f1f1f1;
+    color: #000;
+    position: relative;
+    margin-top: 2px;
+    text-align: left;
+    border: solid grey;
+    border-radius: 5px;
+    border-width: 0.1px;
+}
+
+#message p {
+    padding: 3px 20px;
+    font-size: 14px;
+    margin-left: 2px;
+}
+
+#message h3 {
+    font-size: 16px;
+    padding: 3px 2px;
+}
+
+.valid {
+    color: green;
+}
+
+.valid:before {
+    position: relative;
+    left: -19px;
+    content: "\2713";
+}
+
+.invalid {
+    color: red;
+}
+
+.invalid:before {
+    position: relative;
+    left: -19px;
+    content: "\0058";
+}
+
+.password-toggle {
+    position: relative;
+    width: 100%;
+}
+
+.password-toggle input[type="password"] {
+    padding-right: 30px;
+}
+
+.password-toggle .toggle-icon {
+    position: absolute;
+    top: 50%;
+    right: 5px;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.password-toggle .toggle-icon-two {
+    position: absolute;
+    top: 50%;
+    right: 5px;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
